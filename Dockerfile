@@ -1,18 +1,28 @@
 FROM python:3.9-slim
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-build-essential \
-libpq-dev \
-&& rm -rf /var/lib/apt/lists/*
-# Create app directory
-WORKDIR /app/myproject
-# Copy the requirements file if you have it
-COPY requirements.txt /app/requirements.txt
+    build-essential \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a working directory
+WORKDIR /usr/src/app
+
+# Copy requirements first for caching
+COPY requirements_django.txt /usr/src/app/
+
 # Install Python dependencies
-RUN pip install --no-cache-dir -r /app/requirements.txt
-# Copy the rest of the application code
-COPY . /app
-# Expose port 8000 for Django
+RUN pip install --no-cache-dir -r requirements_django.txt
+
+# Copy the rest of the project files
+COPY . /usr/src/app/
+
+# Make entrypoint script executable
+RUN chmod +x /usr/src/app/entrypoint.sh
+
+# Expose Django’s default port
 EXPOSE 8000
+
 # Default command
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["/usr/src/app/entrypoint.sh"]
