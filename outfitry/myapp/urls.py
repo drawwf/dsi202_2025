@@ -9,6 +9,8 @@ from django.urls import path, include
 urlpatterns = [
     path('', home_page, name='home'),
     path('index.html', home_page, name='home'),
+    #path('outfits/', OutfitListView.as_view(), name='outfit-list'),
+    #path('outfit/<int:pk>/', OutfitDetailView.as_view(), name='outfit-detail'),
     path('matching.html', matching_outfit_view, name='matching-page'),
     path('content.html', content_page, name='content'),
     path('community.html', community_page, name='community-page'),
