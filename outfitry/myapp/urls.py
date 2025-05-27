@@ -1,23 +1,18 @@
-
-from django.urls import path
-from .views import home_page, matching_outfit_view, content_page,community_page, custom_page, shop_detail_page, login_page, signup_page
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-import os
-from django.urls import path, include
+from . import views  # import views ทั้งหมด
 
 urlpatterns = [
-    path('', home_page, name='home'),
-    path('index.html', home_page, name='home'),
-    #path('outfits/', OutfitListView.as_view(), name='outfit-list'),
-    #path('outfit/<int:pk>/', OutfitDetailView.as_view(), name='outfit-detail'),
-    path('matching.html', matching_outfit_view, name='matching-page'),
-    path('content.html', content_page, name='content'),
-    path('community.html', community_page, name='community-page'),
-    path('custom.html', custom_page, name='custom-page'),
-    path('shop-detail.html', shop_detail_page, name='shopdetial-page'),
-    path('login.html', login_page, name='login-page'),
-    path('signup.html', signup_page, name='signup-page'),
-    path('accounts/', include('allauth.urls')), # new
-    path('', home_page, name='home'), #new
-] + static(settings.STATIC_URL, document_root=os.path.join(settings.BASE_DIR, 'myapp', 'static'))
+    path('', views.index, name='home'),  # root path
+    path('signup/', views.signup, name='signup'),
+    path('login/', views.login_view, name='login'),
+    path('matching/', views.matching_view, name='matching'),
+    path('community/', views.community, name='community'),
+    path('content/', views.content, name='content'),
+    path('company/', views.company, name='company'),
+    path('custom/', views.custom, name='custom'),
+    path('price/', views.price, name='price'),
+    path('shop-detail/', views.shop_detail_page, name='shop-detail'),  
+    path('accounts/', include('allauth.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
