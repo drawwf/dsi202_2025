@@ -1,68 +1,35 @@
+
+from django.shortcuts import render
+
 # Create your views here.
 from django.shortcuts import render
 
-def home_page(request):
-    return render(request, 'index.html')  # You’ll create this template
+def index(request):
+    return render(request, 'myapp/index.html')
 
-#from django.views.generic import ListView
-#from .models import Outfit
-#from django.db.models import Q
+def signup(request):
+    return render(request, 'myapp/signup.html')
 
-#class OutfitListView(ListView):
-#    model = Outfit
-#    template_name = 'outfit_list.html'
-#    context_object_name = 'outfits'
+def login_view(request):
+    return render(request, 'myapp/login.html')
 
-#    def get_queryset(self):
-#        query = self.request.GET.get('q')
-#        if query:
-#            return Outfit.objects.filter(
-#                Q(name__icontains=query) | Q(style__icontains=query)
-#            )
-#        return Outfit.objects.all()
+def matching_view(request):
+    return render(request, 'myapp/matching.html')
 
-#    def get_context_data(self, **kwargs):
-#        context = super().get_context_data(**kwargs)
-#        context['search_query'] = self.request.GET.get('q', '')
-#        return context
+def community(request):
+    return render(request, 'myapp/community.html')
 
-#from django.views.generic import DetailView
+def content(request):
+    return render(request, 'myapp/content.html')
 
-#class OutfitDetailView(DetailView):
-    #model = Outfit
-    #template_name = 'outfit_detail.html'
-    #context_object_name = 'outfit'
+def company(request):
+    return render(request, 'myapp/company.html')
 
+def custom(request):
+    return render(request, 'myapp/custom.html')
 
-from django.shortcuts import render
-
-def matching_outfit_view(request):
-    return render(request, 'matching.html')
-
-def content_page(request):
-    return render(request, 'content.html')
-
-def community_page(request):
-    return render(request, 'community.html') 
-
-from django.shortcuts import render
-
-def custom_page(request):
-    return render(request, 'custom.html')
+def price(request):
+    return render(request, 'myapp/price.html')
 
 def shop_detail_page(request):
-    return render(request, 'shop-detail.html')
-
-def login_page(request):
-    return render(request, 'login.html')
-
-def signup_page(request):
-    return render(request, 'signup.html')
-
-from django.shortcuts import render
-
-def custom_page(request):
-    if request.method == 'POST':
-        # handle form
-        ...
-    return render(request, 'custom.html')
+    return render(request, 'myapp/shop-detail.html') 
