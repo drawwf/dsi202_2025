@@ -1,4 +1,5 @@
 from django.contrib import admin
+# Register your models here.
 from .models import User, ClothingItem, Outfit, Recommendation, Subscription
 
 @admin.register(User)

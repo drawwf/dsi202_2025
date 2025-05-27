@@ -13,6 +13,6 @@ urlpatterns = [
     path('company/', views.company, name='company'),
     path('custom/', views.custom, name='custom'),
     path('price/', views.price, name='price'),
-    path('shop-detail/', views.shop_detail_page, name='shop-detail'),  
+    path('shop-detail/', views.shop_detail_page, name='shop-detail'),  # อย่าลืมสร้างฟังก์ชันนี้ใน views.py
     path('accounts/', include('allauth.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

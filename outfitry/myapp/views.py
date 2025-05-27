@@ -32,4 +32,5 @@ def price(request):
     return render(request, 'myapp/price.html')
 
 def shop_detail_page(request):
-    return render(request, 'myapp/shop-detail.html') 
+    return render(request, 'myapp/shop-detail.html')  # หรือชื่อไฟล์ template ที่ถูกต้อง
+

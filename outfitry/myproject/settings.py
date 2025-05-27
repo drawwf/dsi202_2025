@@ -53,11 +53,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",   
-    'django.contrib.sites', 
-    'allauth', 
-    'allauth.account', 
-    'allauth.socialaccount', 
-    'allauth.socialaccount.providers.google', 
+    'django.contrib.sites', #new
+    'allauth', #new
+    'allauth.account', #new
+    'allauth.socialaccount', #new
+    'allauth.socialaccount.providers.google', #new
     "myapp"
 ]
 
@@ -96,7 +96,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "myproject.urls"
 
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -109,7 +108,6 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",]}
     }
 ]
-
 WSGI_APPLICATION = "myproject.wsgi.application"
 
 
@@ -227,4 +225,6 @@ TEMPLATES = [
 
     }
 ]
+
+
 
